@@ -145,32 +145,52 @@ class AppConstants {
     color: white,
   );
 
-  static TextStyle customNormal({double size, Color color}) =>
+  static TextStyle customNormal({
+    double size,
+    Color color,
+  }) =>
       GoogleFonts.montserrat(
         fontWeight: FontWeight.w200,
         fontSize: size,
         color: color, // was lightText
       );
-  static TextStyle customBold({double size, Color color}) =>
+  static TextStyle customBold({
+    double size,
+    Color color,
+  }) =>
       GoogleFonts.montserrat(
         fontWeight: FontWeight.bold,
         fontSize: size,
         color: color, // was lightText
       );
-  static TextStyle customStyle(
-          {double size, Color color, FontWeight weight, FontStyle style}) =>
+  static TextStyle customStyle({
+    double size,
+    Color color,
+    FontWeight weight,
+    FontStyle style,
+  }) =>
       GoogleFonts.montserrat(
         fontWeight: weight,
         fontSize: size,
         fontStyle: style ?? FontStyle.normal,
         color: color,
       );
-  static TextStyle customStyleSpacing(
-          {double size, Color color, FontWeight weight, double letterSpace}) =>
+  static TextStyle customStyleSpacing({
+    double size,
+    Color color,
+    FontWeight weight,
+    double letterSpace,
+    FontStyle style,
+  }) =>
       GoogleFonts.montserrat(
         fontWeight: weight,
         fontSize: size,
+        fontStyle: style,
         color: color,
         letterSpacing: letterSpace,
+//        foreground: Paint()
+//          ..style = PaintingStyle.stroke
+//          ..strokeWidth = 1
+//          ..color = Colors.black,
       );
 }

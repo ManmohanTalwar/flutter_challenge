@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../utils/constants.dart';
+import 'package:flutter_challenge/utils/app_constants.dart';
 
 class RoundIconButton extends StatelessWidget {
   final IconData icon;
@@ -26,7 +25,7 @@ class RoundIconButton extends StatelessWidget {
       fillColor: color ?? Colors.white,
       child: Icon(
         icon,
-        color: iconColor ?? kColorBlue,
+        color: iconColor ?? AppConstants.buttonBlue,
         size: 22,
       ),
       constraints: BoxConstraints.tightFor(

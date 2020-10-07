@@ -1,63 +1,47 @@
 import 'package:flutter/material.dart';
-
-import '../utils/constants.dart';
+import 'package:flutter_challenge/config/Locale/locales.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
   final Function onPressed;
-  final double elevation;
-  final int borderRadius;
-  final EdgeInsets padding;
-  final double textSize;
-  final bool border;
+  final Color borderColor;
+  final Color color;
+  final TextStyle style;
+  final BorderRadius radius;
+  final double padding;
+  final bool loading;
 
-  const CustomButton({
-    Key key,
-    @required this.text,
-    @required this.onPressed,
-    this.elevation,
-    this.borderRadius,
+  CustomButton({
+    this.text,
+    this.onPressed,
+    this.borderColor,
+    this.color,
+    this.style,
+    this.radius,
     this.padding,
-    this.textSize,
-    @required this.border,
-  }) : super(key: key);
+    this.loading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      elevation: 0,
-      hoverElevation: 0,
-      focusElevation: 0,
-      highlightElevation: 0,
-      fillColor: border ? Colors.transparent : kColorBlue,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(
-          borderRadius ?? 4,
-        ),
-        side: border
-            ? BorderSide(style: BorderStyle.solid, width: 1, color: kColorBlue)
-            : BorderSide.none,
+    var theme = Theme.of(context);
+    return FlatButton(
+      padding: EdgeInsets.symmetric(vertical: padding ?? 18),
+      onPressed: loading ? null : onPressed,
+      disabledColor: theme.disabledColor,
+      color: color ?? theme.buttonColor,
+      shape: OutlineInputBorder(
+        borderRadius: radius ?? BorderRadius.zero,
+        borderSide: BorderSide(color: borderColor ?? Colors.transparent),
       ),
-      child: Padding(
-        padding: padding ??
-            const EdgeInsets.only(top: 9, bottom: 10, left: 16, right: 16),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              text,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: Theme.of(context).textTheme.button.copyWith(
-                  color: border ? kColorBlue : Colors.white,
-                  fontSize:
-                      textSize ?? Theme.of(context).textTheme.button.fontSize),
-              textAlign: TextAlign.center,
+      child: loading
+          ? CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation(Colors.white),
+            )
+          : Text(
+              text ?? AppLocalizations.of(context).continueText,
+              style: style ?? Theme.of(context).textTheme.button,
             ),
-          ],
-        ),
-      ),
     );
   }
 }

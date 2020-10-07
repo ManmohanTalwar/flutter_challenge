@@ -12,7 +12,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc(ThemeState initialState) : super(initialState);
 
   ThemeState get initialState =>
-      ThemeState(themeData: appThemeData[AppTheme.DarkTheme]);
+      ThemeState(themeData: appThemeData[AppTheme.LightTheme]);
 
   @override
   Stream<ThemeState> mapEventToState(

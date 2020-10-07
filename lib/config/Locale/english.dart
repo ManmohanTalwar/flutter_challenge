@@ -1,0 +1,26 @@
+Map<String, String> english() {
+  return {
+    'countryText': 'Select Country',
+    'phoneText': 'Phone number',
+    'phoneHint': 'Enter phone number',
+    'continueText': 'Continue',
+    'networkError': 'Network error',
+    'invalidName': 'Invalid name',
+    'firstNameText': 'First Name',
+    'lastNameText': 'Last Name',
+    'firstNameHint': 'Enter First name',
+    'lastNameHint': 'Enter Last name',
+    'submitText': 'Submit',
+    'checkPhoneNetwork': 'Check your network or phone number entered',
+    'homeText': 'Home',
+    'accountText': 'Account',
+    'tnc': 'Terms & Conditions',
+    'knowtnc': 'Know our Terms & Conditions',
+    'shareApp': 'Share App',
+    'shareFriends': 'Share with friends & family',
+    'support': 'Support',
+    'aboutUs': 'About Us',
+    'recentSearch': 'Recent Searches',
+    'contactUs': 'Contact us',
+  };
+}

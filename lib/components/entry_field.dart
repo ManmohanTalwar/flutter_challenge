@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/utils/constants.dart';
+import 'package:flutter_challenge/utils/app_constants.dart';
 
 class EntryField extends StatefulWidget {
   final TextEditingController controller;
@@ -61,14 +61,19 @@ class _EntryFieldState extends State<EntryField> {
           Text(
             widget.label ?? '',
             style: Theme.of(context).textTheme.headline5.copyWith(
-                color: Theme.of(context).primaryColorDark, fontSize: 22),
+                color: AppConstants.black,
+                fontSize: 16,
+                fontWeight: FontWeight.normal),
           ),
           TextFormField(
-            style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 16),
+            style: Theme.of(context).textTheme.bodyText1.copyWith(
+                  fontSize: 16,
+                  color: AppConstants.black,
+                ),
             focusNode: widget.node,
             textCapitalization:
                 widget.textCapitalization ?? TextCapitalization.sentences,
-            cursorColor: kColorPrimary,
+            cursorColor: AppConstants.primaryColor,
             autofocus: false,
             onTap: widget.onTap ?? null,
             onFieldSubmitted: widget.onSubmitted ?? null,
@@ -88,7 +93,7 @@ class _EntryFieldState extends State<EntryField> {
                 icon: Icon(
                   widget.suffixIcon,
                   size: 40.0,
-                  color: kColorPrimary,
+                  color: AppConstants.primaryColor,
                 ),
                 onPressed: widget.onSuffixPressed ?? null,
               ),
@@ -99,7 +104,7 @@ class _EntryFieldState extends State<EntryField> {
                 fontWeight: FontWeight.w400,
               ),
               hintStyle:
-                  Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 18),
+                  Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 14),
               counter: Offstage(),
             ),
           ),
