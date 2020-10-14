@@ -13,29 +13,22 @@ import 'routes/routes.dart';
 import 'utils/themebloc/theme_bloc.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light));
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.black,
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.light,
+    ),
+  );
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    UserDataRepository userDataRepository = UserDataRepository();
-
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => ThemeBloc(
-            ThemeState(
-              themeData: appThemeData[AppTheme.DarkTheme],
-            ),
-          ),
-          child: BlocBuilder<ThemeBloc, ThemeState>(
-            builder: _buildWithTheme,
-          ),
-        ),
         BlocProvider(
           create: (context) => JokesBloc(
             userDataRepository: UserDataRepository(),

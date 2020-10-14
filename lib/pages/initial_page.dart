@@ -4,6 +4,7 @@ import 'package:flutter_challenge/components/custom_button.dart';
 import 'package:flutter_challenge/components/entry_field.dart';
 import 'package:flutter_challenge/config/Locale/locales.dart';
 import 'package:flutter_challenge/pages/jokes_page.dart';
+import 'package:flutter_challenge/routes/routes.dart';
 import 'package:flutter_challenge/utils/app_constants.dart';
 
 class InitialPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _InitialPageState extends State<InitialPage> {
     var locale = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         backgroundColor: AppConstants.white,
         title: Text(
           'Please Enter your Details',
@@ -89,14 +90,16 @@ class _InitialPageState extends State<InitialPage> {
                             builder: (context) => JokesPage(
                               data: json,
                             ),
+                            settings: RouteSettings(name: Routes.jokesPage),
                           ),
                         )
                         .then((value) => setState(() => loading = false));
                   }
                 : () {
                     Helper.showToast(
-                        context: context,
-                        text: 'Please Fill First Name and Last Name');
+                      context: context,
+                      text: 'Please Fill First Name and Last Name',
+                    );
                   },
           ),
           Spacer(flex: 2),

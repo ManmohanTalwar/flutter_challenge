@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_challenge/blocs/JokesBloc.dart';
 import 'package:flutter_challenge/blocs/JokesEvents.dart';
 import 'package:flutter_challenge/blocs/JokesStates.dart';
+import 'package:flutter_challenge/components/Helper.dart';
 import 'package:flutter_challenge/components/JokesCard.dart';
 import 'package:flutter_challenge/model/JokesApi.dart';
 import 'package:flutter_challenge/utils/app_constants.dart';
@@ -77,6 +78,11 @@ class _JokesPageState extends State<JokesPage> {
                             duration: Duration(milliseconds: 500),
                             curve: Curves.easeIn,
                           );
+                        } else if (index == 0) {
+                          Helper.showInfoToast(
+                            context: context,
+                            text: 'First Joke',
+                          );
                         }
                       },
                       nextCard: () {
@@ -86,6 +92,8 @@ class _JokesPageState extends State<JokesPage> {
                             duration: Duration(milliseconds: 500),
                             curve: Curves.easeIn,
                           );
+                        } else {
+                          Helper.showInfoToast(context: context, text: 'End');
                         }
                       },
                     ),

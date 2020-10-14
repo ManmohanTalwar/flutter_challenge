@@ -7,8 +7,8 @@ import 'package:intl/intl.dart';
 class Helper {
   static showToast({BuildContext context, String text}) {
     return Toast(
-            textColor: AppConstants.black,
-            bgColor: AppConstants.blueBg,
+            textColor: AppConstants.white,
+            bgColor: AppConstants.black,
             textFontSize: 16.0,
             text: text)
         .showDialog(context);
